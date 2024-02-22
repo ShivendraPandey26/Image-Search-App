@@ -17,6 +17,7 @@ function App() {
       const data = await response.json();
       setImages(data.results);
       count = 1;
+      setPage = 1;
     } catch (error) {
       console.log('error');
     }
