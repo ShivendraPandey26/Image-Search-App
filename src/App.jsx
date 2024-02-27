@@ -5,7 +5,6 @@ function App() {
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
   let [page, setPage] = useState(1);
-  let count = 1;
 
   const apiUrl = "https://api.unsplash.com/search/photos?page=";
   const apiKey = "LxcqvcS2pRgJ3nv5xw6xJY2NJn3xY0gZFOsdkx22vsg";
@@ -15,9 +14,8 @@ function App() {
       const URL = `${apiUrl}${page}&query=${name}&client_id=${apiKey}&per_page=20`;
       const response = await fetch(URL);
       const data = await response.json();
-      setImages(data.results);
-      count = 1;
       setPage = 1;
+      setImages(data.results);
     } catch (error) {
       console.log('error');
     }
